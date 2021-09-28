@@ -1,0 +1,15 @@
+version: "3"
+
+networks:
+  dynamic-dns:
+
+services:
+  dynamic-dns:
+    image: dynamic-dns
+    container_name: dynamic-dns
+    environment:
+      - DYNAMIC_DNS_URL
+      - TZ
+    networks:
+      - dynamic-dns
+    restart: unless-stopped
