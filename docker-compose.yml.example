@@ -12,4 +12,6 @@ services:
       - TZ
     networks:
       - dynamic-dns
+    volumes:
+      - ./cron-periodic/5min:/etc/periodic/5min/:ro
     restart: unless-stopped

@@ -4,13 +4,11 @@ RUN \
   echo "*** installing dependencies ***" && \
   apk update --no-cache && \
   apk upgrade --no-cache && \
-  apk add -U cron && \
   rm -rf /var/cache/apk/*
 
-COPY ./update-dns.sh /update-dns.sh
-RUN chmod 0550 /update-dns.sh
+# COPY ./update-dns.sh /usr/local/update-dns.sh
+# RUN chmod 0550 /usr/local/update-dns.sh
 
-COPY crontab /etc/cron.d/cron
-RUN chmod 0644 /etc/cron.d/cron
+RUN echo "*/5	*	*	*	*	run-parts /etc/periodic/5min" >> /etc/crontabs/root
 
 CMD [ "cron", "-f" ]
