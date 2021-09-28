@@ -4,7 +4,7 @@ RUN \
   echo "*** installing dependencies ***" && \
   apk update --no-cache && \
   apk upgrade --no-cache && \
-  apk install cron && \
+  apk add -U cron && \
   rm -rf /var/cache/apk/*
 
 COPY ./update-dns.sh /update-dns.sh
