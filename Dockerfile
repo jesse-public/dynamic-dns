@@ -9,6 +9,6 @@ RUN \
 # COPY ./update-dns.sh /usr/local/update-dns.sh
 # RUN chmod 0550 /usr/local/update-dns.sh
 
-RUN echo "*/5	*	*	*	*	run-parts /etc/periodic/5min" >> /etc/crontabs/root
+RUN echo "*/5	*	*	*	*	run-parts /etc/periodic/5min\n" >> /etc/crontabs/root
 
-CMD [ "cron", "-f" ]
+CMD [ "crond", "-f" ]
