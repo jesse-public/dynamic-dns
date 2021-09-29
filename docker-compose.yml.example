@@ -12,7 +12,4 @@ services:
       - TZ
     networks:
       - dynamic-dns
-    volumes:
-      - ./volumes/etc/crontabs/root:/etc/crontabs/root:rw
-      - ./volumes/etc/periodic/5min:/etc/periodic/5min:ro
     restart: unless-stopped
