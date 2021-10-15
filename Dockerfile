@@ -10,6 +10,9 @@ RUN \
 COPY crontab /crontab
 COPY update-dns.sh /update-dns.sh
 COPY entry.sh /entry.sh
+
+RUN touch /var/log/update-dns.log
+
 RUN chmod 755 /entry.sh /update-dns.sh
 RUN /usr/bin/crontab /crontab
 
