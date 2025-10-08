@@ -2,6 +2,5 @@
 
 docker image pull alpine
 docker build -t dynamic-dns .
-docker-compose up -d
 docker image prune -f
-
+docker compose up --build -d
